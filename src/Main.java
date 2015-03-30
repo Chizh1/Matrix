@@ -52,7 +52,7 @@ public class Main {
     //отминусовываем средее арифметическое каждой строчки у каждого числа этой строчки
     static void average(int a[][]){
         int avr;
-        int count=0;
+        int count;
         for(int i=0;i<a.length;i++ ){
             avr=0;
             count=0;
@@ -94,6 +94,18 @@ public class Main {
         return c;
     }
 
+    static int [][] rotateClockwise(int a [][]){
+        int col=a.length;
+        int b[][]=new int [col][a[0].length];
+        for(int i=0;i<a.length;i++){
+            col--;
+            for(int j=0;j<a[0].length;j++){
+                b[j][col]=a[i][j];
+            }
+        }
+        return b;
+    }
+
 
 
     public static void main(String[] args) {
@@ -121,5 +133,9 @@ public class Main {
         System.out.println("\nrotate 180 degrees");
         list=rotate180degrees(list);
         printout(list);
+        list=rotateClockwise(list);
+        System.out.println("\nrotate 90 degrees");
+        printout(list);
+
     }
 }
